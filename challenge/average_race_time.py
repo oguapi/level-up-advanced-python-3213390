@@ -33,4 +33,16 @@ def get_average():
        s corresponds to a seconds digit
        M corresponds to a milliseconds digit (no rounding, just the single digit)"""
     racetimes = get_rhines_times()
-    pass
+    total = datetime.timedelta()  # saber el numero de tiempos registrados
+    for time in racetimes:
+        try:
+            m, s, M = re.findall(r'[:.]', time)
+            total += datetime.timedelta(minutes=int(m),
+                                        seconds=int(s),
+                                        milliseconds=int(M))
+        except ValueError:
+            m, s = re.split(r'[:]', time)
+            total += datetime.timedelta(minutes=int(m),
+                                        seconds=int(s))
+
+    return total
