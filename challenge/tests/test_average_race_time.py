@@ -1,4 +1,4 @@
-from average_race_time.py import get_data, get_average, get_rhines_times
+from average_race_time import get_average, get_rhines_times, get_data
 
 
 def test_rhine_times():

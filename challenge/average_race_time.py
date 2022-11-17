@@ -15,15 +15,15 @@ def get_data():
 def get_rhines_times():
     """Return a list of Jennifer Rhines' race times"""
     races = get_data()
-    race_timeRhines = []
+    race_time_Rhines = []
 
     def get_time(line):
         return re.findall(r'\d{2}:\S+', line)[0]
 
     for line in races.splitlines():
         if 'Jennifer Rhines' in line:
-            race_timeRhines.append(get_time(line))
-    return race_timeRhines
+            race_time_Rhines.append(get_time(line))
+    return race_time_Rhines
 
 
 def get_average():
