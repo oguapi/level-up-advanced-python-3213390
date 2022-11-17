@@ -4,23 +4,27 @@
 import re
 import datetime
 
+
 def get_data():
     """Return content from the 10k_racetimes.txt file"""
     with open('10k_racetimes.txt', 'rt') as file:
         content = file.read()
     return content
 
+
 def get_rhines_times():
     """Return a list of Jennifer Rhines' race times"""
     races = get_data()
-    race_time= []
+    race_timeRhines = []
+
     def get_time(line):
         return re.findall(r'\d{2}:\S+', line)[0]
 
     for line in races.splitlines():
-       if 'Jennifer Rhines' in line:
-          rhines_times.append(get_time(line))
-    return rhines_times
+        if 'Jennifer Rhines' in line:
+            race_timeRhines.append(get_time(line))
+    return race_timeRhines
+
 
 def get_average():
     """Return Jennifer Rhines' average race time in the format:
